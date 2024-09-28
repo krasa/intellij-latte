@@ -8,6 +8,8 @@ import com.intellij.psi.tree.ILightStubFileElementType;
 import com.intellij.util.diff.FlyweightCapableTreeStructure;
 import com.jantvrdik.intellij.latte.LatteLanguage;
 import com.jantvrdik.intellij.latte.psi.LatteFile;
+import org.jetbrains.annotations.NonNls;
+import org.jetbrains.annotations.NotNull;
 
 public class LatteElementTypes {
     public static LatteLanguage LANG = LatteLanguage.INSTANCE;
@@ -30,6 +32,11 @@ public class LatteElementTypes {
             LatteParser parser = new LatteParser();
             parser.parseLight(this, builder);
             return builder.getLightTree();
+        }
+
+        @Override
+        public @NonNls @NotNull String getExternalId() {
+            return "Latte.FILE";
         }
     };
 
